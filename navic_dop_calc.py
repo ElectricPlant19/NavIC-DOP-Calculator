@@ -49,7 +49,7 @@ class SpaceTrackClient:
             response.raise_for_status()
             return True
         except Exception as e:
-            st.error(f"Login failed: {str(e)}")
+            # st.error(f"Login failed: {str(e)}")
             return False
     
     def get_tle(self, norad_id):
@@ -65,7 +65,7 @@ class SpaceTrackClient:
             response.raise_for_status()
             return response.text
         except Exception as e:
-            st.error(f"Error fetching TLE for {norad_id}: {str(e)}")
+            # st.error(f"Error fetching TLE for {norad_id}: {str(e)}")
             return None
     
     def get_multiple_tles(self, norad_ids):
@@ -83,7 +83,7 @@ class SpaceTrackClient:
             response.raise_for_status()
             return response.text
         except Exception as e:
-            st.error(f"Error fetching TLEs: {str(e)}")
+            # st.error(f"Error fetching TLEs: {str(e)}")
             return ""
         
 
@@ -118,7 +118,7 @@ def parse_tle_data(tle_text, sat_dict):
                 satellite = EarthSatellite(line1, line2, sat_name, ts)
                 satellites[sat_name] = satellite
         except (ValueError, IndexError) as e:
-            st.warning(f"Error parsing TLE: {str(e)}")
+            # st.warning(f"Error parsing TLE: {str(e)}")
             continue
     
     return satellites
@@ -138,7 +138,7 @@ def calculate_satellite_position(satellite, time, observer_location):
             'elevation': alt.degrees
         }
     except Exception as e:
-        st.warning(f"Error calculating position: {str(e)}")
+        # st.warning(f"Error calculating position: {str(e)}")
         return None
     
 
@@ -384,3 +384,4 @@ def main():
 if __name__ == "__main__":
 
     main()
+
