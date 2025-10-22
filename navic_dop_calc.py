@@ -1,14 +1,12 @@
 
-import streamlit as st
 import numpy as np
 from skyfield.api import load, EarthSatellite, wgs84
 from datetime import datetime, timedelta
 import pandas as pd
-import plotly.graph_objects as go
-from plotly.subplots import make_subplots
 import requests
 from io import StringIO
 
+#Navic Sats
 NAVIK_SATS = {
     "IRNSS-1B": 39635,
     "IRNSS-1C": 40269,
@@ -19,7 +17,7 @@ NAVIK_SATS = {
     "NVS-01": 56759
 }
 
-# Extreme points of India (approximate)
+# Extreme points of India
 INDIA_EXTREME_POINTS = {
     "Northernmost (Siachen Glacier)": (35.5, 77.0),
     "Southernmost (Indira Point)": (6.75, 93.85),
@@ -384,4 +382,5 @@ def main():
 
 
 if __name__ == "__main__":
+
     main()
